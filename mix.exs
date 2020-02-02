@@ -20,7 +20,7 @@ defmodule Recipeboard.MixProject do
   def application do
     [
       mod: {Recipeboard.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ex_machina, :faker]
+      extra_applications: [:logger, :runtime_tools, :ueberauth_facebook]
     ]
   end
 
@@ -33,24 +33,26 @@ defmodule Recipeboard.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.4.7"},
-      {:phoenix_pubsub, "~> 1.1"},
-      {:phoenix_ecto, "~> 4.0"},
-      {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"},
-      {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"},
-      {:corsica, "~> 1.0"},
-
       {:absinthe_phoenix, ">= 1.5.0-rc.0"},
       {:absinthe_plug, ">= 1.5.0-rc.0"},
       {:absinthe_relay, ">= 1.5.0-rc.0"},
       {:absinthe, ">= 1.5.0-rc.2"},
       {:argon2_elixir, "~> 2.0"},
+      {:corsica, "~> 1.0"},
       {:credo, "1.1.0", only: [:dev, :test], runtime: false},
+      {:ecto_sql, "~> 3.0"},
       {:ex_machina, "~> 2.3", only: :test},
       {:faker, "~> 0.13", only: :test},
+      {:gettext, "~> 0.11"},
+      {:jason, "~> 1.0"},
+      {:phoenix, "~> 1.4.7"},
+      {:phoenix_pubsub, "~> 1.1"},
+      {:phoenix_ecto, "~> 4.0"},
+      {:plug_cowboy, "~> 2.0"},
+      {:poison, "~> 4.0.1"},
+      {:postgrex, ">= 0.0.0"},
+      {:ueberauth_facebook, "~> 0.8"},
+      {:ueberauth, "~> 0.6.2"}
     ]
   end
 

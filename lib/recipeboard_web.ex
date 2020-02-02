@@ -15,7 +15,6 @@ defmodule RecipeboardWeb do
         root: "lib/recipeboard_web/templates",
         namespace: RecipeboardWeb
 
-      # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
       import RecipeboardWeb.ErrorHelpers
@@ -39,9 +38,6 @@ defmodule RecipeboardWeb do
     end
   end
 
-  @doc """
-  When used, dispatch to the appropriate controller/view/etc.
-  """
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
   end
