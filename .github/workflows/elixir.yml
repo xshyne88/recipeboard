@@ -50,6 +50,6 @@ jobs:
         port: ${{ secrets.PORT }}
         key: ${{ secrets.SSHKEY }}
         passphrase: ${{ secrets.PASSPHRASE }}
-        script: cat /opt/app/README.md
+        script: cat /home/web/server/README.md
   
         
