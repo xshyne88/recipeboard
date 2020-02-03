@@ -37,6 +37,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
       with:
         source: "."
         target: "/opt/app"
@@ -48,6 +49,7 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
         script: cat /opt/app/README.md
   
         
