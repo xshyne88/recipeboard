@@ -9,7 +9,7 @@ defmodule RecipeboardWeb.Router do
   scope "/api" do
     pipe_through [:api]
 
-    forward "/", Absinthe.Plug, schema: MyAppWeb.Schema
+    forward "/", Absinthe.Plug, schema: RecipeboardWeb.Schema
   end
 
   scope "/graphiql" do
@@ -18,10 +18,10 @@ defmodule RecipeboardWeb.Router do
     forward(
       "/",
       Absinthe.Plug.GraphiQL,
-      schema: RecipeboardWeb.Schema,
-      json_codec: Jason,
-      interface: :playground,
-      socket: RecipeboardWeb.UserSocket
+      schema: RecipeboardWeb.Schema
+      # json_codec: Jason,
+      # interface: :playground,
+      # socket: RecipeboardWeb.UserSocket
     )
   end
 end

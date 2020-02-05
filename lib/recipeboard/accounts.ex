@@ -1,9 +1,20 @@
 defmodule Recipeboard.Accounts do
-
   import Ecto.Query, warn: false
   alias Recipeboard.Repo
 
   alias Recipeboard.Accounts.User
+
+  def query_data() do
+    Dataloader.Ecto.new(Repo, query: &query/2)
+  end
+
+  def query(queryable, _params) do
+    queryable
+  end
+
+  def list_users(_, _) do
+    User
+  end
 
   def list_users do
     Repo.all(User)
