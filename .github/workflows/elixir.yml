@@ -37,17 +37,19 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSHKEY }}
+        PASSPHRASE: ${{ secrets.PASSPHRASE }}
       with:
         source: "."
-        target: "/opt/app"
+        target: "/home/web/server"
 
     - name: Executing remote  command
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PORT: ${{ secrets.PORT }}
-        KEY: ${{ secrets.SSHKEY }}
-        script: cat /opt/app/README.md
+        username: ${{ secrets.USERNAME }}
+        port: ${{ secrets.PORT }}
+        key: ${{ secrets.SSHKEY }}
+        passphrase: ${{ secrets.PASSPHRASE }}
+        script: cat /home/web/server/README.md
   
         
