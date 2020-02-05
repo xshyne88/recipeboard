@@ -33,13 +33,14 @@ defmodule Recipeboard.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:absinthe_phoenix, ">= 1.5.0-rc.0"},
-      {:absinthe_plug, ">= 1.5.0-rc.0"},
-      {:absinthe_relay, ">= 1.5.0-rc.0"},
-      {:absinthe, ">= 1.5.0-rc.2"},
+      {:absinthe, ">= 1.4.0"},
+      {:absinthe_phoenix, ">= 1.4.0"},
+      {:absinthe_plug, ">= 1.4.0"},
+      {:absinthe_relay, ">= 1.4.0"},
       {:argon2_elixir, "~> 2.0"},
       {:corsica, "~> 1.0"},
       {:credo, "1.1.0", only: [:dev, :test], runtime: false},
+      {:dataloader, "~> 1.0.0"},
       {:ecto_sql, "~> 3.0"},
       {:ex_machina, "~> 2.3", only: :test},
       {:faker, "~> 0.13", only: :test},
@@ -52,7 +53,8 @@ defmodule Recipeboard.MixProject do
       {:poison, "~> 4.0.1"},
       {:postgrex, ">= 0.0.0"},
       {:ueberauth_facebook, "~> 0.8"},
-      {:ueberauth, "~> 0.6.2"}
+      {:ueberauth, "~> 0.6.2"},
+      {:wormwood, "~> 0.1.0"}
     ]
   end
 
