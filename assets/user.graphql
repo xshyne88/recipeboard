@@ -1,5 +1,9 @@
-query User {
-  user {
-    id
+mutation createUserMutation($input: CreateUserInput!) {
+  createUser(input: $input) {
+    edges {
+      node {
+        email
+      }
+    }
   }
 }
