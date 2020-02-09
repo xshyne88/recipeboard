@@ -10,6 +10,12 @@ defmodule RecipeboardWeb.Schema do
     import_fields(:user_queries)
   end
 
+  mutation do
+  end
+
+  subscription do
+  end
+
   node interface do
     resolve_type fn
       %Recipeboard.Accounts.User{}, _ ->
