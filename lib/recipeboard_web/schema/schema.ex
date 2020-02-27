@@ -14,6 +14,9 @@ defmodule RecipeboardWeb.Schema do
     import_fields(:user_mutations)
   end
 
+  subscription do
+  end
+
   node interface do
     resolve_type(fn
       %Recipeboard.Accounts.User{}, _ ->
