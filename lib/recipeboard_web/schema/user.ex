@@ -16,6 +16,25 @@ defmodule RecipeboardWeb.Schema.User do
       resolve(&Resolvers.User.get_users_connection/3)
     end
   end
+
+  input_object :user_input do
+    field(:id, :id)
+    field(:email, non_null(:string))
+    field(:admin, non_null(:boolean))
+  end
+
+  object :create_user_payload do
+    field(:edge, :user_edge)
+    field(:success, :boolean)
+  end
+
+  object :user_mutations do
+    field(:create_user, :create_user_payload) do
+      arg(:input, non_null(:user_input))
+
+      resolve(&Resolvers.User.create_user/3)
+    end
+  end
 end
 
 # def from_dataloader(loader, source_name, resource, parent, options) do
