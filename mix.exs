@@ -45,6 +45,7 @@ defmodule Recipeboard.MixProject do
       {:ex_machina, "~> 2.3", only: :test},
       {:faker, "~> 0.13", only: :test},
       {:gettext, "~> 0.11"},
+      {:guardian, "~> 2.1.1"},
       {:jason, "~> 1.0"},
       {:oauth2, "~> 0.9", override: true},
       {:phoenix, "~> 1.4.7"},
