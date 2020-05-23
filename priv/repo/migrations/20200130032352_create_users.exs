@@ -3,12 +3,18 @@ defmodule Recipeboard.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
+      add :admin, :boolean, default: false, null: false
+
       add :name, :string
       add :email, :string
-      add :admin, :boolean, default: false, null: false
+      add :image, :string
+
+      add :uid, :string
+      add :remote_ip, :string
 
       timestamps()
     end
 
+    create unique_index(:users, [:email])
   end
 end
