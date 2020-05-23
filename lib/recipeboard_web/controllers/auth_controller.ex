@@ -8,5 +8,7 @@ defmodule RecipeboardWeb.AuthController do
 
     params
     |> IO.inspect(label: "params")
+
+    conn |> redirect(external: "/graphiql")
   end
 end
