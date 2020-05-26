@@ -6,6 +6,7 @@ defmodule Recipeboard.Accounts.User do
     field :admin, :boolean, default: false
     field :email, :string
     field :name, :string
+    field :image, :string
     field :password, :string, virtual: true
 
     timestamps()
@@ -14,15 +15,22 @@ defmodule Recipeboard.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :admin])
-    |> validate_required([:name, :email, :admin])
+    |> cast(attrs, [:name, :email, :admin, :image])
+    |> validate_required([:email, :admin])
     |> unique_constraint(:email)
-    |> encrypt_and_put_password()
+    |> encrypt_password()
   end
 
-  defp encrypt_and_put_password(%{valid?: true, changes: %{password: pw}} = changeset) do
-    put_change(changeset, :encrypted_password, Argon2.has_pwd_salt(pw))
+  defp from_conn(%{
+         assigns: %{ueberauth_auth: %{info: %{email: email}, provider: provider, uid: uid} = auth}
+       }) do
+    %{email: email, provider: provider, uid: uid, admin: false}
+    |> Recipeboard.Accounts.change_user()
   end
 
-  defp encrypt_and_put_password(changeset), do: changeset
+  defp encrypt_password(%{valid?: true, changes: %{password: pw}} = changeset) do
+    put_change(changeset, :encrypted_password, Argon2.hash_pwd_salt(pw))
+  end
+
+  defp encrypt_password(changeset), do: changeset
 end
