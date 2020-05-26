@@ -9,6 +9,8 @@ defmodule Recipeboard.Repo.Migrations.CreateUsers do
       add :email, :string
       add :image, :string
 
+      add :provider, :string
+
       add :uid, :string
       add :remote_ip, :string
 
