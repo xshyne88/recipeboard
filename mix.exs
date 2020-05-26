@@ -20,7 +20,7 @@ defmodule Recipeboard.MixProject do
   def application do
     [
       mod: {Recipeboard.Application, []},
-      extra_applications: [:logger, :runtime_tools, :ueberauth_facebook]
+      extra_applications: [:logger, :runtime_tools, :ueberauth_facebook, :corsica]
     ]
   end
 
@@ -51,6 +51,7 @@ defmodule Recipeboard.MixProject do
       {:phoenix, "~> 1.4.7"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
+      {:plug, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:poison, "~> 4.0.1"},
       {:postgrex, ">= 0.0.0"},
