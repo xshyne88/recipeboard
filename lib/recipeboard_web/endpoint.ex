@@ -23,6 +23,6 @@ defmodule RecipeboardWeb.Endpoint do
 
   plug Plug.MethodOverride
   plug Plug.Head
+  plug Corsica, origins: "*"
   plug RecipeboardWeb.Router
-
 end
