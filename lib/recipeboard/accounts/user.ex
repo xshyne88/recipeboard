@@ -21,8 +21,8 @@ defmodule Recipeboard.Accounts.User do
     |> encrypt_password()
   end
 
-  defp from_conn(%{
-         assigns: %{ueberauth_auth: %{info: %{email: email}, provider: provider, uid: uid} = auth}
+  def from_conn(%{
+         assigns: %{ueberauth_auth: %{info: %{email: email}, provider: provider, uid: uid}}
        }) do
     %{email: email, provider: provider, uid: uid, admin: false}
     |> Recipeboard.Accounts.change_user()
