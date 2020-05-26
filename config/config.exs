@@ -34,6 +34,11 @@ config :ueberauth, Ueberauth,
        ]}
   ]
 
+config :recipeboard, RecipeboardWeb.Guardian,
+  issuer: "recipeboard",
+  # secret_key: System.get_env("SECRET_KEY_BASE") |> IO.inspect()
+  secret_key: "8rGJlduQbjek/Vz7ZFAHz2vURwFp5dr16qoh+uV/sYVEmoPi2ugerfuoeZQ5x6tJ"
+
 config :ueberauth, Ueberauth.Strategy.Facebook.OAuth,
   client_id: System.get_env("FACEBOOK_APP_ID"),
   client_secret: System.get_env("FACEBOOK_APP_SECRET")
