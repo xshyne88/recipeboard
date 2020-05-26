@@ -6,10 +6,6 @@ defmodule RecipeboardWeb.Router do
     plug :accepts, ["json"]
   end
 
-  # pipeline :browser do
-  # plug RecipeboardWeb.Auth
-  # end
-
   scope "/api" do
     pipe_through [:api]
 
@@ -17,12 +13,15 @@ defmodule RecipeboardWeb.Router do
   end
 
   scope "/auth", RecipeboardWeb do
-    # pipe_through :browser
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
     post "/:provider/callback", AuthController, :callback
     post "/logout", AuthController, :delete
+  end
+
+  scope "/foo" do
+    get "/", FooController, :f
   end
 
   scope "/graphiql" do
